@@ -1,5 +1,5 @@
-(ns com.flyingmachine.penny-black.templates-test
-  (:require [com.flyingmachine.penny-black.templates :as templates])
+(ns com.flyingmachine.penny-black.core.templates-test
+  (:require [com.flyingmachine.penny-black.core.templates :as templates])
   (:use midje.sweet))
 
 (def template-vars

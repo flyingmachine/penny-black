@@ -1,5 +1,5 @@
-(ns com.flyingmachine.penny-black.send
-  (:require [com.flyingmachine.penny-black.templates :refer [body]]
+(ns com.flyingmachine.penny-black.core.send
+  (:require [com.flyingmachine.penny-black.core.templates :refer [body]]
             [clojure.string :as s]
             [environ.core :refer :all]))
 

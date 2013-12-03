@@ -1,4 +1,4 @@
-(ns com.flyingmachine.penny-black.templates
+(ns com.flyingmachine.penny-black.core.templates
   (:require [clojure.java.io :as io]
             [stencil.core :as stencil]
             [clojure.contrib.core :refer (-?>)]

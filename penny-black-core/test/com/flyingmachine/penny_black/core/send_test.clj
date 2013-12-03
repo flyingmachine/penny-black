@@ -1,6 +1,6 @@
-(ns com.flyingmachine.penny-black.templates-test
-  (:require [com.flyingmachine.penny-black.send :as send]
-            [com.flyingmachine.penny-black.templates :as templates]
+(ns com.flyingmachine.penny-black.core.templates-test
+  (:require [com.flyingmachine.penny-black.core.send :as send]
+            [com.flyingmachine.penny-black.core.templates :as templates]
             [environ.core :refer :all])
   (:use midje.sweet))
 
