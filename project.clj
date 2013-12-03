@@ -12,6 +12,12 @@
 
   :profiles {:dev {:dependencies [[midje "1.5.0"]]
                    :env {:com-flyingmachine-penny-black
-                         {:template-path "email-templates"}}}
+                         {:template-path "email-templates"
+                          :send-email false
+                          :test-to "nonrecursive+test-to@gmail.com"
+                          :test-from "nonrecursive+test-from@gmail.com"}}}
              :test {:env {:com-flyingmachine-penny-black
-                          {:template-path "email-templates"}}}})
+                          {:template-path "email-templates"
+                          :send-email false
+                          :test-to "nonrecursive+test-to@gmail.com"
+                          :test-from "nonrecursive+test-from@gmail.com"}}}})

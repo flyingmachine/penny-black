@@ -1,21 +1,20 @@
 (ns com.flyingmachine.penny-black.send
-  (:require [com.flyingmachine.email.sending.content :refer [body]]
+  (:require [com.flyingmachine.penny-black.templates :refer [body]]
+            [clojure.string :as s]
             [environ.core :refer :all]))
+
+(defprotocol PennyBlackBackend
+  (send-with-backend [params] "Send with e.g. postal or apache commons email"))
 
 (defn send-email*
   [for-reals? params]
   (if for-reals?
-    (cond
-     (= (config/setting core/config-key :backend) :postal)
-     (send-with-postal params)
-     
-     (= (config/setting core/config-key :backend) :apache-commons)
-     (send-with-apache-commons params))
+    (send-with-backend params)
     params))
 
 (defn send-email
   [params]
-  (send-email* (config/setting :com.flyingmachine.email :send-email) params))
+  (send-email* (get-in env [:com-flyingmachine-penny-black :send-email]) params))
 
 (defn final-sender-params
   [defaults addl template-name]
