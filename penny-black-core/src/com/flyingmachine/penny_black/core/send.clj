@@ -3,8 +3,7 @@
             [clojure.string :as s]
             [environ.core :refer :all]))
 
-(defprotocol PennyBlackBackend
-  (send-with-backend [params] "Send with e.g. postal or apache commons email"))
+(defmulti send-with-backend :x)
 
 (defn send-email*
   [for-reals? params]

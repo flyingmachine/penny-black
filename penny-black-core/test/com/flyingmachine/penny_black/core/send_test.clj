@@ -1,4 +1,4 @@
-(ns com.flyingmachine.penny-black.core.templates-test
+(ns com.flyingmachine.penny-black.core.send-test
   (:require [com.flyingmachine.penny-black.core.send :as send]
             [com.flyingmachine.penny-black.core.templates :as templates]
             [environ.core :refer :all])
