@@ -13,7 +13,7 @@
 
 (defn send-email
   [params]
-  (send-email* (get-in env [:com-flyingmachine-penny-black :send-email]) params))
+  (send-email* (config :send-email) params))
 
 (defn final-sender-params
   [defaults addl template-name]

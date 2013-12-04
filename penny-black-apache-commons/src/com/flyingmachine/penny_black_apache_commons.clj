@@ -1,6 +1,6 @@
 (ns com.flyingmachine.penny-black-apache-commons
   (:require com.flyingmachine.penny-black.core.send
-            [com.flyingmachine.penny-black.core.config :refer config])
+            [com.flyingmachine.penny-black.core.config :refer (config)])
   (:import org.apache.commons.mail.HtmlEmail))
 
 
