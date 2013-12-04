@@ -1,6 +1,9 @@
 (ns com.flyingmachine.penny-black-apache-commons-test
-  (:use clojure.test
-        com.flyingmachine.penny-black-apache-commons))
+  (:require [com.flyingmachine.penny-black.core.config :refer (config)]
+            [com.flyingmachine.penny-black.core.send :as send]
+            [com.flyingmachine.penny-black.core.templates :as templates]
+            com.flyingmachine.penny-black-apache-commons)
+  (:use midje.sweet))
 
 (def template-vars
   {:var1 "a"
@@ -9,8 +12,8 @@
    :htmlvar2 "<p>b</p>"})
 
 (def mail-options
-  {:from (get-in env [:com-flyingmachine-penny-black :test-from])
-   :to (get-in env [:com-flyingmachine-penny-black :test-to])
+  {:from (config :test-from)
+   :to (config :test-to)
    :subject "penny black test"
    :body (templates/body "test" template-vars)})
 
@@ -18,4 +21,4 @@
   (send/send-email*
    true
    mail-options)
-  => mail-options)
+  => true)
