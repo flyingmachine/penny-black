@@ -22,3 +22,21 @@
    true
    mail-options)
   => {:code 0, :error :SUCCESS, :message "messages sent"})
+
+(fact "should create a function which returns nil and actually sends email"
+  (send/defsenders
+    {:args [users]
+     :user-doseq [user users]}
+
+    {:from (config :test-from)
+     :body-data {:var1 "a"
+                 :var2 "b"
+                 :htmlvar1 "<p>a</p>"
+                 :htmlvar2 "<p>b</p>"}}
+
+    (send-test
+     []
+     :to (:email user)
+     :subject "Postal defsender test"))
+  (send-test [{:email (config :test-to)}])
+  => nil)

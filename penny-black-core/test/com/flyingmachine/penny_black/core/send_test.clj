@@ -1,6 +1,7 @@
 (ns com.flyingmachine.penny-black.core.send-test
   (:require [com.flyingmachine.penny-black.core.send :as send]
             [com.flyingmachine.penny-black.core.templates :as templates]
+            [com.flyingmachine.penny-black.core.config :refer (config)]
             [environ.core :refer :all])
   (:use midje.sweet))
 
@@ -21,3 +22,18 @@
    false
    mail-options)
   => mail-options)
+
+
+(fact "should create a function which returns nil"
+  (send/defsenders
+    {:args [users]
+     :user-doseq [user users]}
+
+    {:from (config :test-from)
+     :to (config :test-to)}
+
+    (send-test
+     []
+     :subject "Postal defsender test"))
+  (send-test [{}])
+  => nil)

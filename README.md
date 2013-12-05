@@ -134,3 +134,5 @@ Example template for `send-new-topic-notification`. Using the above
 
 * Handle attachments
 * Figure out whether I can just use postal
+* Logging/debugging facilities
+* Better semantics in `defsenders`, particularly allow vars
