@@ -1,4 +1,4 @@
-(defproject com.flyingmachine/penny-black-core "0.1.0-SNAPSHOT"
+(defproject com.flyingmachine/penny-black-core "0.1.0"
   :description "email sending templates and core sending functions"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
