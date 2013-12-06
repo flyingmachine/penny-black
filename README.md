@@ -67,9 +67,12 @@ A sender will iterate over a list of users, with each individual user
 accessible within the body
 
 ```clojure
+;; it's necessary to require the correct backend
 (ns whatever
-  (:require [com.flyingmachine.penny-black.core.send :refer (defsenders)]))
+  (:require com.flyingmachine.penny-black-apache-commons
+            [com.flyingmachine.penny-black.core.send :refer (defsenders)]))
 
+;; Create the sending functions. Example of calling them below.
 (defsenders
   ;; A list of args that each sending function will take
   {:args [users topic]
@@ -93,13 +96,19 @@ accessible within the body
    [post]
    :subject (str "[Forum Site] Re: " (:title topic))
    :body-data {:content (:content post)
-               :formatted-content (md-content post)})
+               :formatted-content (markdown-content post)})
   
   (send-new-topic-notification
    []
    :subject (str "[Forum Site] " (:title topic))
    :body-data {:content (:content (:first-post topic))
-               :formatted-content (md-content (:first-post topic))}))
+               :formatted-content (markdown-content (:first-post topic))}))
+
+;; Example of calling
+(let [post some-post
+      topic (:topic post)
+      users (db/all [:users :watching topic])]
+  (send-reply-notification users topic post))
 ```
 
 ### Create templates
@@ -136,3 +145,5 @@ Example template for `send-new-topic-notification`. Using the above
 * Figure out whether I can just use postal
 * Logging/debugging facilities
 * Better semantics in `defsenders`, particularly allow vars
+* Not use a multimethod?
+* Is it weird to have to require the backend and a core ns separately?
