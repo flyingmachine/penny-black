@@ -86,10 +86,12 @@ accessible within the body
 (defsenders
   ;; A list of args that each sending function will take
   {:args [users topic]
-   :user-doseq [user users]} ; - "user" is the name of each individual
-                             ;   user object
-                             ; - "users" corresponds to the virst
-                             ;   value of :args above
+   :user-doseq [user users]}
+  ;; senders iterate over a seq and send an email for each element
+  ;; :user-doseq specifies which argument from :args corresponds to
+  ;; the seq ("users") and what name to use for each element ("user").
+  ;; This way you have access to element when specifying the data to
+  ;; bind to your email templates.
 
   ;; These are defaults which you can overwrite in each sender below.
   ;; If you specify :body-data in a sender, it gets merged with the
