@@ -1,22 +1,26 @@
 # Penny Black
 
-This library makes it a little easier to send emails. You can create
-sending functions and specify text and email templates to use with
-them.
+Penny Black allows you to declaratively create functions which send
+emails HTML and text emails using
+[mustache](http://mustache.github.io/) templates
 
 ## Including as a Dependency
 
-Penny Black allows you to use different email backends. I say that as
-if it's a good thing, but really I have no idea if it is. Your options
-are the Clojure library [postal](https://github.com/drewr/postal) and
-Apache Commons Email. Postal uses sendmail and ACE uses voodoo or
-something.
+Penny Black is comprised of:
 
-If you're not sure which to use, try
-`com.flyingmachine/penny-black-postal` and if that doesn't work try
-`com.flyingmachine/penny-black-apache-commons`.
+* a core which handles templating and defining email functions
+  declaratively
+* email backends which use an email library to actually send the email
 
-Include one of the following in `project.clj`:
+This separation is a little awkward but it will allow you to, for
+example, write a backend which queues your emails. Right now the
+backends act as adapters for
+
+* the Clojure library [postal](https://github.com/drewr/postal)
+* the Java lib [Apache Commons Email](http://commons.apache.org/proper/commons-email/)
+
+To use Penny Black, you'll include one of the email backends in your
+`project.clj` dependencies:
 
 ```clojure
 ;; Use the postal clojure library as your email backend
@@ -25,6 +29,10 @@ Include one of the following in `project.clj`:
 ;; Use apache commons as your email backend
 :dependencies [[com.flyingmachine/penny-black-apache-commons "0.1.0"]]
 ```
+
+If you're not sure which to use, try
+`com.flyingmachine/penny-black-postal` and if that doesn't work try
+`com.flyingmachine/penny-black-apache-commons`.
 
 ## Configuration
 
