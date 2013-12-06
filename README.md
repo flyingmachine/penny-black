@@ -86,8 +86,7 @@ accessible within the body
   ;; These are defaults which you can overwrite in each sender below.
   ;; If you specify :body-data in a sender, it gets merged with the
   ;; map you supply here.
-  {:from (config/setting :com.flyingmachine. :from-address)
-   :to (:user/email user)
+  {:to (:user/email user)
    :body-data {:topic-title (:title topic)
                :topic-id (:id topic)
                :username (:user/username user)}}
@@ -96,6 +95,7 @@ accessible within the body
   ;; will take [users topic post]
   (send-reply-notification
    [post]
+   :from "custom-from@for-this-sender.com"
    :subject (str "[Forum Site] Re: " (:title topic))
    :body-data {:content (:content post)
                :formatted-content (markdown-content post)})
