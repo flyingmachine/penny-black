@@ -91,7 +91,7 @@ accessible within the body
   ;; :user-doseq specifies which argument from :args corresponds to
   ;; the seq ("users") and what name to use for each element ("user").
   ;; This way you have access to element when specifying the data to
-  ;; bind to your email templates.
+  ;; bind to your email templates, e.g. (:user/username user) below
 
   ;; These are defaults which you can overwrite in each sender below.
   ;; If you specify :body-data in a sender, it gets merged with the
