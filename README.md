@@ -157,3 +157,11 @@ Example template for `send-new-topic-notification`. Using the above
 * Better semantics in `defsenders`, particularly allow vars
 * Not use a multimethod?
 * Is it weird to have to require the backend and a core ns separately?
+
+## The Name
+
+From [wikipedia](http://en.wikipedia.org/wiki/Penny_Black):
+
+    The Penny Black was the world's first adhesive postage stamp used
+    in a public postal system. It was issued in Britain on 1 May 1840,
+    for official use from 6 May of that year.
