@@ -67,7 +67,9 @@ A sender will iterate over a list of users, with each individual user
 accessible within the body
 
 ```clojure
-;; it's necessary to require the correct backend
+;; it's necessary to require both the correct backend and
+;; com.flyingmachine.penny-black.core.send in order to define your senders
+;; Why? Becase v0.1.0
 (ns whatever
   (:require com.flyingmachine.penny-black-apache-commons
             [com.flyingmachine.penny-black.core.send :refer (defsenders)]))
