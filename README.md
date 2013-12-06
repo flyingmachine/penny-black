@@ -1,8 +1,8 @@
 # Penny Black
 
 Penny Black allows you to declaratively create functions which send
-emails HTML and text emails using
-[mustache](http://mustache.github.io/) templates
+HTML and text emails using [mustache](http://mustache.github.io/)
+templates
 
 ## Including as a Dependency
 
