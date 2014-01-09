@@ -1,4 +1,4 @@
-(defproject com.flyingmachine/penny-black-apache-commons "0.1.0"
+(defproject com.flyingmachine/penny-black-apache-commons "0.1.1"
   :description "Apache Commons email backend for penny black"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
