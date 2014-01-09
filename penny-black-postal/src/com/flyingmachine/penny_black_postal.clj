@@ -7,7 +7,7 @@
   [params]
   {:host (config :host)
    :ssl (config :use-ssl)
-   :port (Integer. (config :ssl-smtp-port))
+   :port (and (config :ssl-smtp-port) (Integer. (config :ssl-smtp-port)))
    :user (config params :authentication :username)
    :pass (config params :authentication :password)})
 
@@ -25,10 +25,18 @@
     (html-body params)
     (:text params)))
 
+(defn from
+  [params]
+  (let [from-address (config params :from-address)
+        from-name (config params :from-name)]
+    (if from-name
+      (str "\"" from-name "\" <" from-address ">")
+      from-address)))
+
 (defn postal-params
   [params]
   (merge params
-         {:from (config params :from-address)
+         {:from (from params)
           :body (body (:body params))}))
 
 (defmethod send-with-backend :default [params]
