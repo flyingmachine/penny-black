@@ -1,4 +1,4 @@
-(defproject com.flyingmachine/penny-black-core "0.1.0"
+(defproject com.flyingmachine/penny-black-core "0.1.2"
   :description "email sending templates and core sending functions"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -15,6 +15,7 @@
                    :env {:com-flyingmachine-penny-black
                          {:template-path "email-templates"
                           :send-email false
+                          :merge-to true
                           :test-to "nonrecursive+test-to@gmail.com"
                           :test-from "nonrecursive+test-from@gmail.com"}}}
              :test {:env {:com-flyingmachine-penny-black
